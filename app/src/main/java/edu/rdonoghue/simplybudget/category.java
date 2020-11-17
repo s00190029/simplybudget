@@ -27,7 +27,9 @@ public class category {
     }
 
     public category(String nameIn){
+        idIterate = + 2;
         this.name = name;
+        this.balance = 0;
     }
 
 }
