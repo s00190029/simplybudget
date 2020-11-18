@@ -1,9 +1,10 @@
 package edu.rdonoghue.simplybudget;
+import android.app.Activity;
+import edu.rdonoghue.simplybudget.MainActivity;
 
 public class category {
-
     // attributes
-    int idIterate = 1;
+    int idIterate;
     int id;
     String name;
     float balance;
@@ -13,21 +14,37 @@ public class category {
         if (plusOrMinus == true){
             this.balance += amtIn;
         }
-        else{
+        else if (amtIn <= this.balance){
             this.balance -= amtIn;
+        }
+    }
+
+    public void setBalance(float balanceIn){
+        this.balance = balanceIn;
+    }
+
+    public void rename(String nameIn){
+        this.name = nameIn;
+    }
+
+    public void resolveNegativeBalance(){
+        if (this.balance < 0){
+            this.balance += MainActivity.availableCash;
+            MainActivity.setCash(0);
         }
     }
 
     // constructors
     public category(){
         this.id = idIterate;
-        idIterate = + 2;
+        idIterate += 2;
         this.name = "unknown";
         this.balance = 0;
     }
 
     public category(String nameIn){
-        idIterate = + 2;
+        this.id = idIterate;
+        idIterate += 2;
         this.name = name;
         this.balance = 0;
     }
