@@ -4,7 +4,7 @@ import edu.rdonoghue.simplybudget.MainActivity;
 
 public class category {
     // attributes
-    int idIterate;
+    static int idIterate =0;
     int id;
     String name;
     float balance;
@@ -37,7 +37,7 @@ public class category {
     // constructors
     public category(){
         this.id = idIterate;
-        idIterate += 2;
+        idIterate++;
         this.name = "unknown";
         this.balance = 0;
     }
@@ -45,7 +45,7 @@ public class category {
     public category(String nameIn){
         this.id = idIterate;
         idIterate += 2;
-        this.name = name;
+        this.name = nameIn;
         this.balance = 0;
     }
 
