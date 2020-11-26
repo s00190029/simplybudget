@@ -39,8 +39,6 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="12dp"
         android:elevation="100dp"
-        android:max="100"
-        android:progress="30"
         app:layout_constraintBottom_toBottomOf="@+id/btnCat2"
         app:layout_constraintEnd_toEndOf="@+id/btnCat2" />
 
@@ -129,8 +127,6 @@
         android:layout_width="240dp"
         android:layout_height="50dp"
         android:elevation="100dp"
-        android:max="100"
-        android:progress="30"
         app:layout_constraintBottom_toBottomOf="@+id/btnCat"
         app:layout_constraintEnd_toEndOf="@+id/btnCat"
         app:layout_constraintHorizontal_bias="0.671"
