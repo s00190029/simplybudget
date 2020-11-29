@@ -11,22 +11,24 @@
         android:layout_width="59dp"
         android:layout_height="47dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
         android:background="@drawable/rounded_corners_button"
         android:text="+/-"
+        app:layout_constraintBottom_toBottomOf="@+id/etCatInput"
+        app:layout_constraintEnd_toStartOf="@+id/etCatInput"
+        app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPlusMinusCatTxtTitle" />
+        app:layout_constraintTop_toTopOf="@+id/etCatInput" />
 
     <TextView
-        android:id="@+id/tvPlusMinusCatTxtTitle"
-        android:layout_width="263dp"
-        android:layout_height="37dp"
+        android:id="@+id/tvPlusMinusCatLabel"
+        android:layout_width="226dp"
+        android:layout_height="36dp"
         android:layout_marginTop="280dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.722"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Enter in Amount" />
@@ -36,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
+        android:background="@drawable/basic_color_button"
         app:layout_constraintBottom_toBottomOf="@+id/BtnCatMoneySave"
         app:layout_constraintEnd_toStartOf="@+id/BtnCatMoneySave"
         app:layout_constraintHorizontal_bias="0.5"
@@ -46,11 +49,26 @@
         android:id="@+id/BtnCatMoneySave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="184dp"
+        android:background="@drawable/basic_color_button"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnCatMoneyBack"
-        app:layout_constraintTop_toBottomOf="@+id/btnPlusMinusCatMoney" />
+        app:layout_constraintTop_toBottomOf="@+id/etCatInput"
+        app:layout_constraintVertical_bias="0.664" />
+
+    <EditText
+        android:id="@+id/etCatInput"
+        android:layout_width="226dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPlusMinusCatLabel"
+        app:layout_constraintVertical_bias="0.02" />
 </androidx.constraintlayout.widget.ConstraintLayout>

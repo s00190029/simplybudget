@@ -7,13 +7,13 @@
     tools:context=".ExpandedCategoryActivity">
 
     <Button
-        android:id="@+id/btnBack"
+        android:id="@+id/btnCatBack"
         android:layout_width="97dp"
         android:layout_height="42dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="37dp"
         android:layout_marginEnd="176dp"
-        android:background="@drawable/rounded_corners_button"
+        android:background="@drawable/basic_color_button"
         android:text="Back"
         app:layout_constraintEnd_toStartOf="@+id/btnEnterMoney"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,11 +29,11 @@
         android:text="+"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnBack"
+        app:layout_constraintStart_toEndOf="@+id/btnCatBack"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etCatDisplayName"
+        android:id="@+id/etCatName"
         android:layout_width="237dp"
         android:layout_height="48dp"
         android:ems="10"
@@ -45,28 +45,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.262" />
 
-    <EditText
-        android:id="@+id/etCatDisplayCash"
-        android:layout_width="209dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="0.00"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/etCatDisplayName"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/etCatDisplayName"
-        app:layout_constraintTop_toBottomOf="@+id/etCatDisplayName" />
-
     <TextView
         android:id="@+id/tvEuroLabel"
         android:layout_width="29dp"
         android:layout_height="42dp"
         android:text="€"
+        android:textColor="#000000"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/etCatDisplayCash"
-        app:layout_constraintEnd_toStartOf="@+id/etCatDisplayCash"
-        app:layout_constraintStart_toStartOf="@+id/etCatDisplayName"
-        app:layout_constraintTop_toTopOf="@+id/etCatDisplayCash" />
+        app:layout_constraintBottom_toBottomOf="@+id/etCatCash"
+        app:layout_constraintEnd_toStartOf="@+id/etCatCash"
+        app:layout_constraintStart_toStartOf="@+id/etCatName"
+        app:layout_constraintTop_toTopOf="@+id/etCatCash" />
+
+    <EditText
+        android:id="@+id/etCatCash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCatName"
+        app:layout_constraintVertical_bias="0.111" />
 </androidx.constraintlayout.widget.ConstraintLayout>
