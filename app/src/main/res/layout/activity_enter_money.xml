@@ -24,21 +24,21 @@
         android:layout_width="226dp"
         android:layout_height="36dp"
         android:layout_marginTop="280dp"
-        android:text="TextView"
+        android:text="Enter in Amount"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Enter in Amount" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnCatMoneyBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
         android:background="@drawable/basic_color_button"
+        android:onClick="DoMoneyCatBack"
+        android:text="Back"
         app:layout_constraintBottom_toBottomOf="@+id/BtnCatMoneySave"
         app:layout_constraintEnd_toStartOf="@+id/BtnCatMoneySave"
         app:layout_constraintHorizontal_bias="0.5"
