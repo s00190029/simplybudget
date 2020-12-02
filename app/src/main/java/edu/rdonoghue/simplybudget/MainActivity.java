@@ -12,10 +12,11 @@ import org.w3c.dom.Text;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity 
+    public static Button btnAvailableCash;
     public static float availableCash = 0;
-    Button btnAvailableCash;
     TextView tvCatCash1, tvCatCash2, tvCatName1, tvCatName2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +36,6 @@ public class MainActivity extends AppCompatActivity {
         tvCatCash1.setText(String.valueOf(starter1.balance));
         tvCatName2.setText(starter2.name);
         tvCatCash2.setText(String.valueOf(starter2.balance));
-
-
-
     }
 
     public static void setCash(float amtIn){
