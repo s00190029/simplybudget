@@ -15,12 +15,28 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     public static float availableCash = 0;
     Button btnAvailableCash;
+    TextView tvCatCash1, tvCatCash2, tvCatName1, tvCatName2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnAvailableCash = findViewById(R.id.btnCashDisplay);
         btnAvailableCash.setText("Cash: €" + String.valueOf(availableCash));
+
+        // Starter categories
+        tvCatName1 = findViewById(R.id.tvCatName);
+        tvCatCash1 = findViewById(R.id.tvCatCash);
+        tvCatName2 = findViewById(R.id.tvCatName2);
+        tvCatCash2 = findViewById(R.id.tvCatCash2);
+        category starter1, starter2;
+        starter1 = new category("Groceries", 100.0f);
+        starter2 = new category("Bills");
+        tvCatName1.setText(starter1.name);
+        tvCatCash1.setText(String.valueOf(starter1.balance));
+        tvCatName2.setText(starter2.name);
+        tvCatCash2.setText(String.valueOf(starter2.balance));
+
+
 
     }
 
