@@ -13,15 +13,14 @@ import org.w3c.dom.Text;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    public static float availableCash = 0;
-    Button btnAvailableCash;
+    public static float availableCash=0;
+   public static Button btnAvailableCash;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnAvailableCash = findViewById(R.id.btnCashDisplay);
         btnAvailableCash.setText("Cash: €" + String.valueOf(availableCash));
-
     }
 
     public static void setCash(float amtIn){
