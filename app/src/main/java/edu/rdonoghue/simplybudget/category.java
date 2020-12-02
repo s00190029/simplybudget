@@ -49,5 +49,12 @@ public class category {
         this.balance = 0;
     }
 
+    public category(String nameIn, float balanceIn){
+        this.id = idIterate;
+        idIterate += 2;
+        this.name = nameIn;
+        this.balance = balanceIn;
+    }
+
 }
 
