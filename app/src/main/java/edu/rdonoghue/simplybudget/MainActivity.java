@@ -12,7 +12,7 @@ import org.w3c.dom.Text;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity 
+public class MainActivity extends AppCompatActivity {
     public static Button btnAvailableCash;
     public static float availableCash = 0;
     TextView tvCatCash1, tvCatCash2, tvCatName1, tvCatName2;
