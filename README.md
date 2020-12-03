@@ -1,9 +1,8 @@
 # simplybudget
+This is a 3rd year project 2020 / 2021
 
-## Shannon this is my commit | shannonFeature
-## Robert's line | Rob's feature
-## Anna's Feature complete
-## shannon
-## Rob
-## Git video
+## Team Members
+#### Anna Gwizdz
+#### Shannon Viney
+#### Robert Donoghue
 
