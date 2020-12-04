@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".StartLumpSumActivity">
 
+    <Button
+        android:id="@+id/btnLumpSumSpend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/basic_color_button"
+        android:onClick="doSpend"
+        android:text="SPEND"
+        tools:layout_editor_absoluteX="186dp"
+        tools:layout_editor_absoluteY="119dp" />
+
     <EditText
         android:id="@+id/etLumpSumInput"
         android:layout_width="265dp"
@@ -38,8 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/basic_color_button"
-        android:onClick="doSave"
-        android:text="Save"
+        android:onClick="doInvest"
+        android:text="Invest"
         app:layout_constraintBottom_toBottomOf="@+id/btnLumpSumBack"
         app:layout_constraintEnd_toStartOf="@+id/btnLumpSumBack"
         app:layout_constraintHorizontal_bias="0.5"
@@ -50,7 +60,7 @@
         android:id="@+id/tvLumpSumLabel"
         android:layout_width="262dp"
         android:layout_height="37dp"
-        android:text="Enter Lump Sum "
+        android:text="Enter € Amount"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20dp"
@@ -71,4 +81,5 @@
         app:layout_constraintEnd_toStartOf="@+id/etLumpSumInput"
         app:layout_constraintTop_toTopOf="@+id/etLumpSumInput"
         app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
