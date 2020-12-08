@@ -9,7 +9,8 @@ import android.widget.EditText;
 public class StartLumpSumActivity extends AppCompatActivity {
 EditText eTcashValue;
 public Float userInput;
-public int walletType;
+public int walletType; // 0 is cash. 1 is category (Groceries for now)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,8 @@ public int walletType;
         else if (walletType == 1){
             userInput = Float.valueOf(eTcashValue.getText().toString());
             MainActivity.starter1.updateBalance(userInput, true);
+            MainActivity.tvCatCash1.setText(String.valueOf(MainActivity.starter1.balance));
+            MainActivity.updateCash(userInput, false);
         }
         finish();
     }

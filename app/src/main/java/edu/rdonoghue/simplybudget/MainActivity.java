@@ -2,11 +2,13 @@ package edu.rdonoghue.simplybudget;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -65,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
             availableCash -= amtIn;
         }
         btnAvailableCash.setText(String.valueOf(availableCash));
+        if (availableCash < 0) {
+//            Toast.makeText(this, "WARNING: Over-budgeted - Cash is negative", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void doSpendInvestCat(View view) {
