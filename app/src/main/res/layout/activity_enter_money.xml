@@ -9,15 +9,16 @@
     <Button
         android:id="@+id/btnPlusMinusCatMoney"
         android:layout_width="59dp"
-        android:layout_height="47dp"
+        android:layout_height="0dp"
         android:layout_marginStart="32dp"
+        android:layout_marginBottom="342dp"
         android:background="@drawable/rounded_corners_button"
         android:text="+/-"
-        app:layout_constraintBottom_toBottomOf="@+id/etCatInput"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/etCatInput"
         app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/etCatInput" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCatMoneyBack" />
 
     <TextView
         android:id="@+id/tvPlusMinusCatLabel"
@@ -36,27 +37,27 @@
         android:id="@+id/btnCatMoneyBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="269dp"
         android:background="@drawable/basic_color_button"
         android:onClick="DoMoneyCatBack"
         android:text="Back"
-        app:layout_constraintBottom_toBottomOf="@+id/BtnCatMoneySave"
-        app:layout_constraintEnd_toStartOf="@+id/BtnCatMoneySave"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlusMinusCatMoney"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BtnCatMoneySave" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/BtnCatMoneySave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="227dp"
+        android:layout_height="49dp"
         android:background="@drawable/basic_color_button"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnCatMoneyBack"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etCatInput"
-        app:layout_constraintVertical_bias="0.664" />
+        app:layout_constraintVertical_bias="0.741" />
 
     <EditText
         android:id="@+id/etCatInput"
