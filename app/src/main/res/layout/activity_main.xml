@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".MainActivity">
 
     <TextView
@@ -26,7 +27,7 @@
         android:layout_width="368dp"
         android:layout_height="135dp"
         android:layout_marginTop="28dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/basic_cat_colour_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCat" />
@@ -116,7 +117,7 @@
         android:layout_width="368dp"
         android:layout_height="135dp"
         android:layout_marginTop="44dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/basic_cat_colour_button"
         android:onClick="doSpendInvestCat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
