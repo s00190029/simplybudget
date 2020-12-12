@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static void setCash(float amtIn){
         availableCash = amtIn;
-        btnAvailableCash.setText(String.valueOf(amtIn));
+        btnAvailableCash.setText("Cash: €" + String.valueOf(amtIn));
     }
 
     public static void updateCash(float amtIn, boolean plusOrMinus){
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         else {
             availableCash -= amtIn;
         }
-        btnAvailableCash.setText(String.valueOf(availableCash));
+        btnAvailableCash.setText("Cash: €" +String.valueOf(availableCash));
         if (availableCash < 0) {
 //            Toast.makeText(this, "WARNING: Over-budgeted - Cash is negative", Toast.LENGTH_SHORT).show();
         }
