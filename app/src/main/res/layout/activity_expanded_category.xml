@@ -8,59 +8,32 @@
 
     <Button
         android:id="@+id/btnCatBack"
-        android:layout_width="97dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginBottom="86dp"
+        android:layout_width="87dp"
+        android:layout_height="42dp"
         android:background="@drawable/basic_color_button"
         android:onClick="DoBackCat"
         android:text="Back"
-        app:layout_constraintBottom_toTopOf="@+id/tvEnterCatNameLabel"
-        app:layout_constraintEnd_toStartOf="@+id/btnEnterMoney"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.064" />
 
     <Button
         android:id="@+id/btnEnterMoney"
         android:layout_width="45dp"
         android:layout_height="42dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="16dp"
         android:background="@drawable/enter_money_button"
         android:onClick="DoEnterMoneyAct"
         android:text="+"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnCatBack"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etCatName"
-        android:layout_width="237dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEnterCatNameLabel"
-        app:layout_constraintVertical_bias="0.057" />
-
-    <TextView
-        android:id="@+id/tvEuroLabel"
-        android:layout_width="29dp"
-        android:layout_height="42dp"
-        android:text="€"
-        android:textColor="#000000"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/etCatCash"
-        app:layout_constraintEnd_toStartOf="@+id/etCatCash"
-        app:layout_constraintStart_toStartOf="@+id/etCatName"
-        app:layout_constraintTop_toTopOf="@+id/etCatCash" />
+        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintStart_toEndOf="@+id/btnCatBack"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063" />
 
     <EditText
         android:id="@+id/etCatCash"
@@ -71,36 +44,65 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEnterCatAmountLabel"
-        app:layout_constraintVertical_bias="0.107" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.669" />
 
     <TextView
-        android:id="@+id/tvEnterCatNameLabel"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="518dp"
-        android:text="Enter New Category Name"
-        android:textAlignment="center"
+        android:id="@+id/tvEuroLabel"
+        android:layout_width="29dp"
+        android:layout_height="42dp"
+        android:text="€"
         android:textColor="#000000"
-        android:textSize="20dp"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/etCatName"
-        app:layout_constraintStart_toStartOf="@+id/etCatName"
-        app:layout_constraintTop_toBottomOf="@+id/btnCatBack" />
+        app:layout_constraintEnd_toStartOf="@+id/etCatCash"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666" />
 
     <TextView
         android:id="@+id/tvEnterCatAmountLabel"
         android:layout_width="237dp"
         android:layout_height="48dp"
-        android:layout_marginTop="40dp"
         android:text="Enter Category Amount"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/etCatCash"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvEuroLabel"
-        app:layout_constraintTop_toBottomOf="@+id/etCatName" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.557" />
+
+    <EditText
+        android:id="@+id/etCatName"
+        android:layout_width="237dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.414" />
+
+    <TextView
+        android:id="@+id/tvEnterCatNameLabel"
+        android:layout_width="262dp"
+        android:layout_height="46dp"
+        android:text="Enter New Category Name"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.297" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
