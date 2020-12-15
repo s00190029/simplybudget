@@ -2,7 +2,7 @@ package edu.rdonoghue.simplybudget;
 import android.app.Activity;
 import edu.rdonoghue.simplybudget.MainActivity;
 
-public class category {
+public class Category {
     // attributes
     static int idIterate =0;
     int id;
@@ -19,10 +19,6 @@ public class category {
         }
     }
 
-    public void setBalance(float balanceIn){
-        this.balance = balanceIn;
-    }
-
     public void rename(String nameIn){
         this.name = nameIn;
     }
@@ -35,24 +31,53 @@ public class category {
     }
 
     // constructors
-    public category(){
+    public Category(){
         this.id = idIterate;
         idIterate++;
         this.name = "unknown";
         this.balance = 0;
     }
 
-    public category(String nameIn){
+    public Category(String nameIn){
         this.id = idIterate;
         idIterate += 2;
         this.name = nameIn;
         this.balance = 0;
     }
 
-    public category(String nameIn, float balanceIn){
+    public Category(String nameIn, float balanceIn){
         this.id = idIterate;
         idIterate += 2;
         this.name = nameIn;
+        this.balance = balanceIn;
+    }
+
+    // for db
+    public Category(int idIn, String nameIn, float balanceIn){
+        this.id = idIn;
+        this.name = nameIn;
+        this.balance = balanceIn;
+    }
+
+    // get sets
+    public int getId(){
+        return id;
+    }
+    public void setId(int idIn){
+        this.id = idIn;
+    }
+
+    public String getName(){
+        return name;
+    }
+    public void setName(String nameIn){
+        this.name = nameIn;
+    }
+
+    public float getBalance(){
+        return balance;
+    }
+    public void setBalance(float balanceIn){
         this.balance = balanceIn;
     }
 
