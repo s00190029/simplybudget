@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         tvCatCash1 = findViewById(R.id.tvCatCash);
         tvCatName2 = findViewById(R.id.tvCatName2);
         tvCatCash2 = findViewById(R.id.tvCatCash2);
-        starter1 = new category("Groceries", 100.0f);
+        starter1 = new category("Food", 100.0f);
         starter2 = new category("Bills");
         tvCatName1.setText(starter1.name);
         tvCatCash1.setText(String.valueOf(starter1.balance));
