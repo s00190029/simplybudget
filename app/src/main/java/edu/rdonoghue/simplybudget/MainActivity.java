@@ -84,4 +84,9 @@ public class MainActivity extends AppCompatActivity {
         LumpSum.putExtra("walletType", 0);
         startActivity(LumpSum);
     }
+
+    public void DoTutorial(View view) {
+        Intent tutorial= new Intent(view.getContext(),activityTutorialVideo.class);
+        startActivity(tutorial);
+    }
 }
