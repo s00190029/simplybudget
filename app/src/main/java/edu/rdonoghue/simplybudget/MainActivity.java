@@ -2,24 +2,21 @@ package edu.rdonoghue.simplybudget;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.Locale;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static Button btnAvailableCash;
     public static float availableCash;
     public static TextView tvCatCash1, tvCatCash2, tvCatName1, tvCatName2;
     public Button catButton;
-    public static category starter1, starter2;
+    public static Category starter1, starter2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
         tvCatCash1 = findViewById(R.id.tvCatCash);
         tvCatName2 = findViewById(R.id.tvCatName2);
         tvCatCash2 = findViewById(R.id.tvCatCash2);
-        starter1 = new category("Food", 100.0f);
-        starter2 = new category("Bills");
+      
+        starter1 = new Category("Groceries", 100.0f);
+        starter2 = new Category("Bills");
+      
         tvCatName1.setText(starter1.name);
         tvCatCash1.setText(String.valueOf(starter1.balance));
         tvCatName2.setText(starter2.name);
@@ -52,6 +51,28 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        // db test
+        DatabaseHandler db = new DatabaseHandler(this);
+        Log.i("Insert: ", "Inserting ..");
+        db.addCategory(starter1);
+        /*
+        // Reading all cats
+        Log.i("Reading: ", "Reading all cats..");
+        List<Category> cats = db.getAllCats();
+        for (Category ct : cats) {
+            String log =
+                    "Id: " + ct.getId() +
+                            " , Name: " + ct.getName() +
+                            " , Balance: " + ct.getBalance();
+
+            // Writing cats to log
+            Log.i("Cat: ", log);
+        }
+        */
+        Category tcat = db.getCat(2);
+        Log.i("Reading:", "Cat name is " + tcat.getName());
+
     }
 
     public static void setCash(float amtIn){
