@@ -1,9 +1,14 @@
 package edu.rdonoghue.simplybudget;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
@@ -14,6 +19,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "categories.db"; // name of db
     private static final int DATABASE_VERSION = 1;
+
+    private SQLiteDatabase db;
+
+
 
     // Database creation sql statement
     private static final String DATABASE_CREATE =
@@ -43,10 +52,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase database) {
+        this.db = db;
         database.execSQL(DATABASE_CREATE);
-
-
-
     }
 
     @Override
@@ -58,7 +65,36 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    private void starterCats(){
-        Category c1 = new Category();
+    private void fillStarterCats(){
+        Category c1 = new Category("Groceries", 50f);
+        addStarterCats(c1);
+        Category c2 = new Category("Bills", 100f);
+        addStarterCats(c2);
+        Category c3 = new Category("Leisure", 25.50f);
+        addStarterCats(c3);
     }
+
+    private void addStarterCats(Category category){
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_NAME, category.getName());
+        cv.put(COLUMN_BALANCE, category.getBalance());
+        db.insert(TABLE_CATEGORIES, null, cv);
+    }
+
+    public List<Category> getAllCategories(){
+        List<Category> categoryList = new ArrayList();
+        db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " +  TABLE_CATEGORIES, null);
+        if (c.moveToFirst()){
+            do {
+                Category category = new Category();
+                category.setName(c.getString(c.getColumnIndex(COLUMN_NAME)));
+                category.setBalance(c.getFloat(c.getColumnIndex(COLUMN_BALANCE)));
+                categoryList.add(category);
+            } while (c.moveToNext());
+        }
+        c.close();
+        return categoryList;
+    }
+
 }

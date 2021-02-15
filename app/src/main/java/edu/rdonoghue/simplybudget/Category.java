@@ -4,8 +4,6 @@ import edu.rdonoghue.simplybudget.MainActivity;
 
 public class Category {
     // attributes
-    static int idIterate =0;
-   private long id; // primary key
     String name;
     float balance;
 
@@ -32,41 +30,21 @@ public class Category {
 
     // constructors
     public Category(){
-        this.id = idIterate;
-        idIterate++;
         this.name = "unknown";
         this.balance = 0;
     }
 
     public Category(String nameIn){
-        this.id = idIterate;
-        idIterate += 2;
         this.name = nameIn;
         this.balance = 0;
     }
 
     public Category(String nameIn, float balanceIn){
-        this.id = idIterate;
-        idIterate += 2;
-        this.name = nameIn;
-        this.balance = balanceIn;
-    }
-
-    // for db
-    public Category(int idIn, String nameIn, float balanceIn){
-        this.id = idIn;
         this.name = nameIn;
         this.balance = balanceIn;
     }
 
     // get sets
-    public long getId(){
-        return this.id;
-    }
-    public void setId(long idIn){
-        this.id = idIn;
-    }
-
     public String getName(){
         return name;
     }

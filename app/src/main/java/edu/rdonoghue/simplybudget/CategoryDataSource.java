@@ -31,6 +31,7 @@ public class CategoryDataSource {
         dbHelper.close();
     }
 
+    /*
     public Category createCategory(String category) {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_NAME, category);
@@ -44,14 +45,18 @@ public class CategoryDataSource {
         cursor.close();
         return newCategory;
     }
+    */
 
+    /*
     public void deleteCategory(Category category) {
         long id = category.getId();
         System.out.println("Comment deleted with id: " + id);
         database.delete(MySQLiteHelper.TABLE_CATEGORIES, MySQLiteHelper.COLUMN_ID
                 + " = " + id, null);
     }
+     */
 
+    /*
     public List<Category> getAllCategories() {
         List<Category> categories = new ArrayList<Category>();
 
@@ -68,7 +73,9 @@ public class CategoryDataSource {
         cursor.close();
         return categories;
     }
+*/
 
+    /*
     private Category cursorToCategory(Cursor cursor) {
         Category category = new Category();
         category.setId(cursor.getLong(0));
@@ -76,4 +83,5 @@ public class CategoryDataSource {
         category.setBalance(cursor.getFloat(2));
         return category;
     }
+     */
 } 

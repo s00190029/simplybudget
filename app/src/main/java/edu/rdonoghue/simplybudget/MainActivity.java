@@ -53,9 +53,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // db test
+        /*
         DatabaseHandler db = new DatabaseHandler(this);
         Log.i("Insert: ", "Inserting ..");
         db.addCategory(starter1);
+
+         */
         /*
         // Reading all cats
         Log.i("Reading: ", "Reading all cats..");
@@ -70,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
             Log.i("Cat: ", log);
         }
         */
-        Category tcat = db.getCat(2);
-        Log.i("Reading:", "Cat name is " + tcat.getName());
+    //        Category tcat = db.getCat(2);
+    //      Log.i("Reading:", "Cat name is " + tcat.getName());
 
     }
 
