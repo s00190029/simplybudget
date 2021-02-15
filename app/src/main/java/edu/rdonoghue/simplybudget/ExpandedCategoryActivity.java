@@ -19,7 +19,8 @@ public class ExpandedCategoryActivity extends AppCompatActivity {
     }
 
     public void DoEnterMoneyAct(View view) {
-        Intent EnterMoneyAct = new Intent(view.getContext(),StartLumpSumActivity.class);
+        Intent EnterMoneyAct = new Intent(view.getContext(), StartLumpSumActivity.class);
         startActivity(EnterMoneyAct);
     }
+
 }

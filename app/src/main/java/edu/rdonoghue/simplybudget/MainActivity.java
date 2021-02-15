@@ -30,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
         tvCatCash1 = findViewById(R.id.tvCatCash);
         tvCatName2 = findViewById(R.id.tvCatName2);
         tvCatCash2 = findViewById(R.id.tvCatCash2);
+      
         starter1 = new Category("Groceries", 100.0f);
         starter2 = new Category("Bills");
+      
         tvCatName1.setText(starter1.name);
         tvCatCash1.setText(String.valueOf(starter1.balance));
         tvCatName2.setText(starter2.name);
@@ -102,5 +104,10 @@ public class MainActivity extends AppCompatActivity {
         Intent LumpSum = new Intent(view.getContext(),StartLumpSumActivity.class);
         LumpSum.putExtra("walletType", 0);
         startActivity(LumpSum);
+    }
+
+    public void DoTutorial(View view) {
+        Intent tutorial= new Intent(view.getContext(),activityTutorialVideo.class);
+        startActivity(tutorial);
     }
 }

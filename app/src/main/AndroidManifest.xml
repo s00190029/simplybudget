@@ -8,8 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-        <activity android:name=".StartLumpSumActivity"></activity>
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".activityTutorialVideo"></activity>
+        <activity android:name=".StartLumpSumActivity" />
         <activity android:name=".EnterMoneyActivity" />
         <activity android:name=".ExpandedCategoryActivity" />
         <activity android:name=".MainActivity">
