@@ -5,7 +5,7 @@ import edu.rdonoghue.simplybudget.MainActivity;
 public class Category {
     // attributes
     static int idIterate =0;
-    private long id; // primary key
+   private long id; // primary key
     String name;
     float balance;
 
