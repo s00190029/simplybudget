@@ -14,12 +14,17 @@ public class activityTutorialVideo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial_video);
 
+        //for back button on action bar
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //for the video to display
         VideoView videoView = (VideoView) findViewById(R.id.VVTurtorialVideo);
         videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.verticaltest);
         videoView.start();
     }
 
-    public void DoBack(View view) {
-        finish();
-    }
+    //public void DoBack(View view) {
+       // finish();
+    //}
 }

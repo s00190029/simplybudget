@@ -1,14 +1,19 @@
 package edu.rdonoghue.simplybudget;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toolbar;
+import android.view.Menu;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         btnAvailableCash = findViewById(R.id.btnCashDisplay);
         btnAvailableCash.setText("Cash: €" + String.valueOf(availableCash));
 
@@ -106,8 +112,27 @@ public class MainActivity extends AppCompatActivity {
         startActivity(LumpSum);
     }
 
-    public void DoTutorial(View view) {
+    /*public void DoTutorial(View view) {
         Intent tutorial= new Intent(view.getContext(),activityTutorialVideo.class);
         startActivity(tutorial);
+    }*/
+
+    //for the creation of actionbar menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.help_icon_menu,menu);
+        return true;
     }
+
+    //for when the help button is pressed
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.HelpIcon)
+        {
+            Intent tutorial= new Intent(this,activityTutorialVideo.class);
+            startActivity(tutorial);
+        }
+        return true;
+    }
+
 }
