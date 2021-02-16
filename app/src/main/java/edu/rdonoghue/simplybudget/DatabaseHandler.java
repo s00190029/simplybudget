@@ -1,4 +1,4 @@
-package edu.rdonoghue.simplybudget;
+/* package edu.rdonoghue.simplybudget;
 import android.content.ContentValues;
 
 import android.content.Context;
@@ -9,9 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+
  * Class has create / drop table and CRUD ops for table
- */
+
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "simplybudget";
@@ -22,9 +22,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_BALANCE = "balance";
 
 
-    /*
      * Constructor
-     */
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         //3rd argument to be passed is CursorFactory instance
@@ -53,7 +51,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     /*
      * CRUD Helper methods
-     */
     public void emptycategories() {
         // Drop older table if existed
         SQLiteDatabase db = this.getWritableDatabase();
@@ -172,5 +169,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return hi score list
         return hiScoreList;
     }
-    */
+
 }
+    */
