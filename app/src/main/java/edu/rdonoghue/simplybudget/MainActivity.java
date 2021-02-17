@@ -135,6 +135,11 @@ public class MainActivity extends AppCompatActivity {
             Intent tutorial= new Intent(this,activityTutorialVideo.class);
             startActivity(tutorial);
         }
+        if(item.getItemId() == R.id.SQLTesting)
+        {
+            Intent sql= new Intent(this,SQLTestingActivity.class);
+            startActivity(sql);
+        }
         return true;
     }
 
