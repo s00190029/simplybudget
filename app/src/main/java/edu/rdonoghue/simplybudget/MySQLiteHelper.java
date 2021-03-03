@@ -3,6 +3,7 @@ package edu.rdonoghue.simplybudget;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -18,7 +19,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_BALANCE = "balance"; // text column
 
     private static final String DATABASE_NAME = "categories.db"; // name of db
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private SQLiteDatabase db;
 
@@ -54,6 +55,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         this.db = db;
         database.execSQL(DATABASE_CREATE);
+        //fillStarterCats();
+
     }
 
     @Override
@@ -65,16 +68,32 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    private void fillStarterCats(){
-        Category c1 = new Category("Groceries", 50f);
-        addStarterCats(c1);
-        Category c2 = new Category("Bills", 100f);
-        addStarterCats(c2);
-        Category c3 = new Category("Leisure", 25.50f);
-        addStarterCats(c3);
+    public boolean isEmpty(String TableName){
+
+        SQLiteDatabase database = this.getReadableDatabase();
+        int NoOfRows = (int) DatabaseUtils.queryNumEntries(database,TableName);
+
+        if (NoOfRows == 0){
+
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public void fillStarterCats(){
+
+    if(isEmpty(TABLE_CATEGORIES) == false){
+    Category c1 = new Category("Groceries", 50f);
+    addStarterCats(c1);
+    Category c2 = new Category("Bills", 100f);
+    addStarterCats(c2);
+    Category c3 = new Category("Leisure", 25.50f);
+    addStarterCats(c3);
     }
 
-    private void addStarterCats(Category category){
+    }
+
+    public void addStarterCats(Category category){
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_NAME, category.getName());
         cv.put(COLUMN_BALANCE, category.getBalance());
