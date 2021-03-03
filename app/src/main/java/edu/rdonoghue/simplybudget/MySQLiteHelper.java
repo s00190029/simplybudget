@@ -54,6 +54,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         this.db = db;
         database.execSQL(DATABASE_CREATE);
+       fillStarterCats();
     }
 
     @Override
@@ -65,16 +66,19 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    private void fillStarterCats(){
-        Category c1 = new Category("Groceries", 50f);
-        addStarterCats(c1);
-        Category c2 = new Category("Bills", 100f);
-        addStarterCats(c2);
-        Category c3 = new Category("Leisure", 25.50f);
-        addStarterCats(c3);
+    public void fillStarterCats(){
+        if(db == null){
+            Category c1 = new Category("Groceries", 50f);
+            addStarterCats(c1);
+            Category c2 = new Category("Bills", 100f);
+            addStarterCats(c2);
+            Category c3 = new Category("Leisure", 25.50f);
+            addStarterCats(c3);
+        }
+
     }
 
-    private void addStarterCats(Category category){
+    public void addStarterCats(Category category){
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_NAME, category.getName());
         cv.put(COLUMN_BALANCE, category.getBalance());

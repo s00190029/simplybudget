@@ -21,6 +21,7 @@ public class SQLTestingActivity extends AppCompatActivity {
 
         MySQLiteHelper dbHelper = new MySQLiteHelper(this);
         catList = dbHelper.getAllCategories();
+       // dbHelper.fillStarterCats();
 
 
     }
