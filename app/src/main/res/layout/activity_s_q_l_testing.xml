@@ -9,10 +9,23 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="151dp"
-        android:layout_height="51dp"
+        android:layout_height="0dp"
         android:layout_marginTop="48dp"
+        android:layout_marginBottom="75dp"
         android:text="SQL Testing Page"
+        app:layout_constraintBottom_toTopOf="@+id/tvCat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginBottom="538dp"
+        android:text="This text should contain a category data"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
