@@ -82,7 +82,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     }
     public void fillStarterCats(){
 
-    if(isEmpty(TABLE_CATEGORIES) == true){
+    if(isEmpty(TABLE_CATEGORIES) == false){
     Category c1 = new Category("Groceries", 50f);
     addStarterCats(c1);
     Category c2 = new Category("Bills", 100f);
