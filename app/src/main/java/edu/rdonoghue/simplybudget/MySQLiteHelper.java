@@ -19,7 +19,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_BALANCE = "balance"; // text column
 
     private static final String DATABASE_NAME = "categories.db"; // name of db
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private SQLiteDatabase db;
 
@@ -55,7 +55,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         this.db = db;
         database.execSQL(DATABASE_CREATE);
-        fillStarterCats();
+        //fillStarterCats();
 
     }
 
@@ -90,6 +90,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     Category c3 = new Category("Leisure", 25.50f);
     addStarterCats(c3);
     }
+
     }
 
     public void addStarterCats(Category category){
