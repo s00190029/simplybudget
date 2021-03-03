@@ -3,6 +3,7 @@ package edu.rdonoghue.simplybudget;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -54,7 +55,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         this.db = db;
         database.execSQL(DATABASE_CREATE);
-       fillStarterCats();
+        fillStarterCats();
+
     }
 
     @Override
@@ -66,16 +68,28 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void fillStarterCats(){
-        if(db == null){
-            Category c1 = new Category("Groceries", 50f);
-            addStarterCats(c1);
-            Category c2 = new Category("Bills", 100f);
-            addStarterCats(c2);
-            Category c3 = new Category("Leisure", 25.50f);
-            addStarterCats(c3);
-        }
+    public boolean isEmpty(String TableName){
 
+        SQLiteDatabase database = this.getReadableDatabase();
+        int NoOfRows = (int) DatabaseUtils.queryNumEntries(database,TableName);
+
+        if (NoOfRows == 0){
+
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public void fillStarterCats(){
+
+    if(isEmpty(TABLE_CATEGORIES) == true){
+    Category c1 = new Category("Groceries", 50f);
+    addStarterCats(c1);
+    Category c2 = new Category("Bills", 100f);
+    addStarterCats(c2);
+    Category c3 = new Category("Leisure", 25.50f);
+    addStarterCats(c3);
+    }
     }
 
     public void addStarterCats(Category category){
