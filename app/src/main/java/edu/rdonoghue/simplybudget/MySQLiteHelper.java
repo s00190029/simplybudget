@@ -19,9 +19,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_BALANCE = "balance"; // text column
 
     private static final String DATABASE_NAME = "categories.db"; // name of db
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 13;
 
     private SQLiteDatabase db;
+
 
 
 
@@ -37,6 +38,22 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COLUMN_BALANCE
             + " float);";
 
+   /* private static final String DATABASE_FILL =
+          "INSERT INTO "
+                  + TABLE_CATEGORIES
+                    + "("
+                    + COLUMN_NAME
+                    + ","
+                    + COLUMN_BALANCE
+                    + ")"
+                    + "VALUES"
+                    +"("
+                    +"Groceries"
+                    +","
+                    +"0"
+                    +");";
+
+*/
     /*
     create table categories(
         id integer primary key autoincrement,
@@ -57,6 +74,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         database.execSQL(DATABASE_CREATE);
         //fillStarterCats();
 
+
+
     }
 
     @Override
@@ -66,30 +85,51 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                         + newVersion + ", which will destroy all old data");
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CATEGORIES);
         onCreate(db);
+       // db.execSQL("insert into " + TABLE_CATEGORIES + "("+ COLUMN_NAME+"," + COLUMN_BALANCE+"VALUES"");
+        //insert into categories () Values()
+        //fillStarterCats();
+        //db.execSQL("DROP TABLE IF EXISTS " + TABLE_CATEGORIES);
+       // Cursor c = db.rawQuery("SELECT * FROM " +  TABLE_CATEGORIES, null);
+      //  db.execSQL(DATABASE_FILL);
+    }
+
+    public void addCategory(Category category) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAME, category.getName());
+        values.put(COLUMN_BALANCE, category.getBalance());
+
+        // Inserting row
+        db.insert(TABLE_CATEGORIES, null, values);
+        db.close(); // Closing database connection
     }
 
     public boolean isEmpty(String TableName){
-
+        boolean answer;
         SQLiteDatabase database = this.getReadableDatabase();
         int NoOfRows = (int) DatabaseUtils.queryNumEntries(database,TableName);
 
         if (NoOfRows == 0){
 
-            return true;
+            answer= true;
+            Log.i("SQL", "category table is empty!!!!!!");
         }else {
-            return false;
+            answer = false;
+            Log.i("SQL", "category table is FULL!!?!?");
         }
+        return answer;
     }
     public void fillStarterCats(){
 
-    if(isEmpty(TABLE_CATEGORIES) == false){
+
     Category c1 = new Category("Groceries", 50f);
     addStarterCats(c1);
     Category c2 = new Category("Bills", 100f);
     addStarterCats(c2);
     Category c3 = new Category("Leisure", 25.50f);
     addStarterCats(c3);
-    }
+
 
     }
 

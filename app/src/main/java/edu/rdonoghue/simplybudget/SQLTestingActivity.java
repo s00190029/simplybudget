@@ -11,6 +11,8 @@ public class SQLTestingActivity extends AppCompatActivity {
     private TextView tvCat;
     private List<Category> catList;
 
+    public static Category starter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +23,10 @@ public class SQLTestingActivity extends AppCompatActivity {
 
         MySQLiteHelper dbHelper = new MySQLiteHelper(this);
         catList = dbHelper.getAllCategories();
+       // dbHelper.testFILL();
        // dbHelper.fillStarterCats();
-
+        starter = new Category("Groceries", 100.0f);
+        //dbHelper.addCategory(starter);
 
     }
 }
