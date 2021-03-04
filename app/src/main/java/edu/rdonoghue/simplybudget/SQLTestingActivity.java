@@ -21,11 +21,11 @@ public class SQLTestingActivity extends AppCompatActivity {
         //for back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        MySQLiteHelper dbHelper = new MySQLiteHelper(this);
-        catList = dbHelper.getAllCategories();
+       // MySQLiteHelper dbHelper = new MySQLiteHelper(this);
+       // catList = dbHelper.getAllCategories();
        // dbHelper.testFILL();
        // dbHelper.fillStarterCats();
-        starter = new Category("Groceries", 100.0f);
+       // starter = new Category("Groceries", 100.0f);
         //dbHelper.addCategory(starter);
 
     }

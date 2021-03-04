@@ -22,11 +22,19 @@ public class MainActivity extends AppCompatActivity {
     public static TextView tvCatCash1, tvCatCash2, tvCatName1, tvCatName2;
     public Button catButton;
     public static Category starter1, starter2;
+    private List<Category> catList;
+    public MySQLiteHelper dbHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dbHelper = new MySQLiteHelper(this);
+        dbHelper.fillStarterCats();
+        catList = dbHelper.getAllCategories();
+
 
         btnAvailableCash = findViewById(R.id.btnCashDisplay);
         btnAvailableCash.setText("Cash: €" + String.valueOf(availableCash));
@@ -39,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
       
         starter1 = new Category("Groceries", 100.0f);
         starter2 = new Category("Bills");
-      
+
+      //  dbHelper.addCategory(starter1);
+
         tvCatName1.setText(starter1.name);
         tvCatCash1.setText(String.valueOf(starter1.balance));
         tvCatName2.setText(starter2.name);
