@@ -15,15 +15,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_CATEGORIES = "categories"; // table name
     public static final String COLUMN_ID = "_id"; // primary key
-    public static final String COLUMN_NAME = "name"; // text column
-    public static final String COLUMN_BALANCE = "balance"; // text column
-
-    private static final String DATABASE_NAME = "categories.db"; // name of db
-    private static final int DATABASE_VERSION = 2;
-
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_BALANCE = "balance";
+    private static final String DATABASE_NAME = "categories.db";
+    private static final int DATABASE_VERSION = 16;
     private SQLiteDatabase db;
-
-
 
     // Database creation sql statement
     private static final String DATABASE_CREATE =
@@ -37,16 +33,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COLUMN_BALANCE
             + " float);";
 
-    /*
-    create table categories(
-        id integer primary key autoincrement,
-        name text not null,
-        balance float);
-
-    OR
-
-    create table categories (id integer primary key autoincrement, name text not null, balance float);  */
-
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -55,8 +41,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         this.db = db;
         database.execSQL(DATABASE_CREATE);
-        //fillStarterCats();
-
     }
 
     @Override
@@ -68,29 +52,26 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean isEmpty(String TableName){
+    public void addCategory(Category category) {
+        SQLiteDatabase db = this.getWritableDatabase();
 
-        SQLiteDatabase database = this.getReadableDatabase();
-        int NoOfRows = (int) DatabaseUtils.queryNumEntries(database,TableName);
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAME, category.getName());
+        values.put(COLUMN_BALANCE, category.getBalance());
 
-        if (NoOfRows == 0){
-
-            return true;
-        }else {
-            return false;
-        }
+        // Inserting row
+        db.insert(TABLE_CATEGORIES, null, values);
+        //db.close(); // Closing database connection
     }
+
     public void fillStarterCats(){
-
-    if(isEmpty(TABLE_CATEGORIES) == false){
-    Category c1 = new Category("Groceries", 50f);
-    addStarterCats(c1);
-    Category c2 = new Category("Bills", 100f);
-    addStarterCats(c2);
-    Category c3 = new Category("Leisure", 25.50f);
-    addStarterCats(c3);
-    }
-
+        db = this.getWritableDatabase();
+        Category c1 = new Category("Groceries", 50f);
+        addStarterCats(c1);
+        Category c2 = new Category("Bills", 100f);
+        addStarterCats(c2);
+        Category c3 = new Category("Leisure", 25.50f);
+        addStarterCats(c3);
     }
 
     public void addStarterCats(Category category){

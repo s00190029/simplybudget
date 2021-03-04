@@ -60,7 +60,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // code to add the new cat
+    // code to add the new cathttps://vle.itsligo.ie/mod/turnitintooltwo/view.php?id=867658
     void addCategory(Category cat) {
         SQLiteDatabase db = this.getWritableDatabase();
 
