@@ -32,7 +32,7 @@
         app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.219" />
+        app:layout_constraintVertical_bias="0.329" />
 
     <Button
         android:id="@+id/btnLumpSumSave"
@@ -47,7 +47,7 @@
         app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etLumpSumInput"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.126" />
 
     <TextView
         android:id="@+id/tvLumpSumLabel"
@@ -75,30 +75,5 @@
         app:layout_constraintEnd_toStartOf="@+id/etLumpSumInput"
         app:layout_constraintTop_toTopOf="@+id/etLumpSumInput"
         app:layout_constraintVertical_bias="0.0" />
-
-    <ListView
-        android:id="@+id/lvTransactions"
-        android:layout_width="410dp"
-        android:layout_height="261dp"
-        android:background="#bcbec2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLumpSumInput"
-        app:layout_constraintVertical_bias="0.993" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="412dp"
-        android:layout_height="48dp"
-        android:background="@color/black"
-        android:text="Transactions"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/lvTransactions"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
