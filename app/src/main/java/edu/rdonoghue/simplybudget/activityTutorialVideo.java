@@ -2,12 +2,14 @@ package edu.rdonoghue.simplybudget;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.VideoView;
 
 public class activityTutorialVideo extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +20,23 @@ public class activityTutorialVideo extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //for the video to display
+        //for the video to display and have controls
         VideoView videoView = (VideoView) findViewById(R.id.VVTurtorialVideo);
-        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.verticaltest);
-        videoView.start();
+        String VideoPath = ("android.resource://" + getPackageName() + "/" + R.raw.verticaltest);
+        Uri uri = Uri.parse(VideoPath);
+        videoView.setVideoURI(uri);
+
+        MediaController mediaController = new MediaController(this);
+        videoView.setMediaController(mediaController);
+        mediaController.setAnchorView(videoView);
+
+
+
+
+
+
+
+
     }
 
     //public void DoBack(View view) {
