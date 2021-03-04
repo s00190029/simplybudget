@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -33,17 +34,22 @@ public class ExpandedCategoryActivity extends AppCompatActivity {
     //for the creation of actionbar menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.expandedcat_menu,menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.expandedcat_menu,menu);
         return true;
     }
 
-    //for when the help button is pressed
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.AddIcon)
         {
             Intent Act= new Intent(this,StartLumpSumActivity.class);
             startActivity(Act);
+        }
+        else
+        {
+            onBackPressed();
+            return  true;
         }
 
         return true;
