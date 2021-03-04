@@ -17,6 +17,9 @@ public int walletType; // 0 is cash. 1 is category (Groceries for now)
         setContentView(R.layout.activity_start_lump_sum);
         eTcashValue =findViewById(R.id.etLumpSumInput);
         walletType = getIntent().getIntExtra("walletType", 0);
+
+        //for back button on action bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void DoBack(View view) {
