@@ -9,7 +9,12 @@ import android.widget.EditText;
 public class StartLumpSumActivity extends AppCompatActivity {
 EditText eTcashValue;
 public Float userInput;
+
 public int walletType; // 0 is cash. 1 is category (Groceries for now)
+    public int catID;
+    private static MySQLiteHelper dbHelper;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +22,9 @@ public int walletType; // 0 is cash. 1 is category (Groceries for now)
         setContentView(R.layout.activity_start_lump_sum);
         eTcashValue =findViewById(R.id.etLumpSumInput);
         walletType = getIntent().getIntExtra("walletType", 0);
+        catID = getIntent().getIntExtra("catID",0);
+
+        dbHelper = new MySQLiteHelper(this);
 
         //for back button on action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -27,14 +35,17 @@ public int walletType; // 0 is cash. 1 is category (Groceries for now)
     }
 
     public void doInvest(View view) {
+
+        float tempCatBalance = dbHelper.getOneCategory(catID).balance;
         if (walletType == 0){
             userInput = Float.valueOf(eTcashValue.getText().toString());
             MainActivity.updateCash(userInput, true);
         }
         else if (walletType == 1){
             userInput = Float.valueOf(eTcashValue.getText().toString());
-            MainActivity.starter1.updateBalance(userInput, true);
-            MainActivity.tvCatCash1.setText(String.valueOf(MainActivity.starter1.balance));
+            tempCatBalance += userInput;
+            dbHelper.updateOneCategoryBalance(catID, tempCatBalance);
+            MainActivity.tvCatCash1.setText(String.valueOf(dbHelper.getOneCategory(catID).getBalance()));
             MainActivity.updateCash(userInput, false);
         }
         finish();

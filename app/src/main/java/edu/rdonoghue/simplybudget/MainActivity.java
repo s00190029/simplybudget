@@ -5,25 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toolbar;
-import android.view.Menu;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static Button btnAvailableCash;
     public static float availableCash;
-    public static TextView tvCatCash1, tvCatCash2, tvCatName1, tvCatName2;
+    public static TextView tvCatCash1, tvCatCash2, tvCatName1, tvCatName2, tvCatName3, tvCatCash3;
     public Button catButton;
-    public static Category starter1, starter2;
+    public static Category starter1, starter2, starter3;
     private List<Category> catList;
-    public MySQLiteHelper dbHelper;
+    private static MySQLiteHelper dbHelper;
 
 
     @Override
@@ -33,27 +30,32 @@ public class MainActivity extends AppCompatActivity {
 
         dbHelper = new MySQLiteHelper(this);
         dbHelper.fillStarterCats();
+        dbHelper.setInitCash();
         catList = dbHelper.getAllCategories();
 
 
         btnAvailableCash = findViewById(R.id.btnCashDisplay);
-        btnAvailableCash.setText("Cash: €" + String.valueOf(availableCash));
+        btnAvailableCash.setText("Cash: €" + String.valueOf(dbHelper.getCash()));
 
-        // Starter categories
+        // Starter categories linking to visual elements
         tvCatName1 = findViewById(R.id.tvCatName);
         tvCatCash1 = findViewById(R.id.tvCatCash);
+
         tvCatName2 = findViewById(R.id.tvCatName2);
         tvCatCash2 = findViewById(R.id.tvCatCash2);
-      
-        starter1 = new Category("Groceries", 100.0f);
-        starter2 = new Category("Bills");
 
-      //  dbHelper.addCategory(starter1);
+        tvCatName3 = findViewById(R.id.tvCatName3);
+        tvCatCash3 = findViewById(R.id.tvCatCash3);
 
-        tvCatName1.setText(starter1.name);
-        tvCatCash1.setText(String.valueOf(starter1.balance));
-        tvCatName2.setText(starter2.name);
-        tvCatCash2.setText(String.valueOf(starter2.balance));
+        // directly set the starter category visual data to the content of database with hardcoded IDs
+        tvCatName1.setText(dbHelper.getOneCategory(1).getName());
+        tvCatCash1.setText(String.valueOf(dbHelper.getOneCategory(1).getBalance()));
+
+        tvCatName2.setText(dbHelper.getOneCategory(2).getName());
+        tvCatCash2.setText(String.valueOf(dbHelper.getOneCategory(1).getBalance()));
+
+        tvCatName3.setText(dbHelper.getOneCategory(3).getName());
+        tvCatCash3.setText(String.valueOf(dbHelper.getOneCategory(1).getBalance()));
 
         /*  Button listeners
         *   Category long press
@@ -95,29 +97,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void setCash(float amtIn){
-        availableCash = amtIn;
-        btnAvailableCash.setText("Cash: €" + String.valueOf(amtIn));
+        dbHelper.dbUpdateCash(amtIn);
+        btnAvailableCash.setText("Cash: €" + String.valueOf(dbHelper.getCash()));
+
     }
 
     public static void updateCash(float amtIn, boolean plusOrMinus){
+        availableCash = dbHelper.getCash();
+
         if (plusOrMinus == true){
             availableCash += amtIn;
         }
         else {
             availableCash -= amtIn;
         }
-        btnAvailableCash.setText("Cash: €" +String.valueOf(availableCash));
+
+        dbHelper.dbUpdateCash(availableCash);
+
+        btnAvailableCash.setText("Cash: €" +String.valueOf(dbHelper.getCash()));
         if (availableCash < 0) {
-//            Toast.makeText(this, "WARNING: Over-budgeted - Cash is negative", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, "WARNING: Over-budgeted - Cash is negative", Toast.LENGTH_SHORT).show();
         }
+
     }
 
+    // wallet type 0
     public void doSpendInvestCat(View view) {
-        Intent investSpendCat1 = new Intent(view.getContext(), StartLumpSumActivity.class);
+        Intent investSpendCat = new Intent(view.getContext(), StartLumpSumActivity.class);
         //getIntent().putExtra("catID", starter1.id);
-        investSpendCat1.putExtra("walletType", 1);
-        startActivity(investSpendCat1);
+        investSpendCat.putExtra("walletType", 1);
+        investSpendCat.putExtra("catID", 1);
+        startActivity(investSpendCat);
     }
+
 
     public void DoLumSumInput(View view) {
         Intent LumpSum = new Intent(view.getContext(),StartLumpSumActivity.class);

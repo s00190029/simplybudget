@@ -44,6 +44,7 @@ public class Category {
         this.balance = balanceIn;
     }
 
+
     // get sets
     public String getName(){
         return name;
@@ -59,5 +60,12 @@ public class Category {
         this.balance = balanceIn;
     }
 
+    @Override
+    public String toString() {
+        return
+                "name='" + name + '\'' +
+                ", balance=" + balance +
+                '}';
+    }
 }
 
