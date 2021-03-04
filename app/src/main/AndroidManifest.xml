@@ -10,14 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         <activity android:name=".SQLTestingActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity"/>
+
         <activity
             android:name=".activityTutorialVideo"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity"/>
+
         <activity android:name=".StartLumpSumActivity" />
+
         <activity android:name=".EnterMoneyActivity" />
-        <activity android:name=".ExpandedCategoryActivity" />
+
+        <activity android:name=".ExpandedCategoryActivity"
+            android:parentActivityName=".MainActivity"/>
+
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
