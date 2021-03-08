@@ -12,6 +12,7 @@
         android:layout_width="349dp"
         android:layout_height="53dp"
         android:background="@drawable/green_button"
+        android:onClick="expandSave"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
