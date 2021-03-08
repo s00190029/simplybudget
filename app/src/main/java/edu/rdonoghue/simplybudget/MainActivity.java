@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public static Category starter1, starter2, starter3;
     private List<Category> catList;
     private static MySQLiteHelper dbHelper;
+    public static ProgressBar ProTrackerCat1;
 
 
 
@@ -33,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         dbHelper.fillStarterCats();
         dbHelper.setInitCash();
         catList = dbHelper.getAllCategories();
+
+        //progress bar
+        ProTrackerCat1 = findViewById(R.id.proBarCat);
+        ProTrackerCat1.setProgress(0);
+        ProTrackerCat1.setMax(100);
 
 
         btnAvailableCash = findViewById(R.id.btnCashDisplay);
