@@ -35,33 +35,37 @@ public int walletType; // 0 is cash. 1 is category (Groceries for now)
     }
 
     public void doInvest(View view) {
-
-        float tempCatBalance = dbHelper.getOneCategory(catID).balance;
-        if (walletType == 0){
+        if (walletType == 0){ //cash
             userInput = Float.valueOf(eTcashValue.getText().toString());
             MainActivity.updateCash(userInput, true);
         }
-        else if (walletType == 1){
+        else if (walletType == 1){ //cat
+            float tempCatBalance = dbHelper.getOneCategory(catID).balance;
             userInput = Float.valueOf(eTcashValue.getText().toString());
             tempCatBalance += userInput;
             dbHelper.updateOneCategoryBalance(catID, tempCatBalance);
             MainActivity.tvCatCash1.setText(String.valueOf(dbHelper.getOneCategory(catID).getBalance()));
             MainActivity.updateCash(userInput, false);
         }
+        MainActivity.updateVisuals();
         finish();
     }
 
     public void doSpend(View view) {
+
         walletType = getIntent().getIntExtra("walletType", 0);
         float userInput = Float.valueOf(eTcashValue.getText().toString());
-        if (walletType == 1) {
-            MainActivity.starter1.updateBalance(Float.valueOf(eTcashValue.getText().toString()), false);
-            MainActivity.tvCatCash1.setText(String.valueOf(MainActivity.starter1.balance));
-            //MainActivity.updateCash(userInput, false);
+        if (walletType == 1) { //cat
+            float tempCatBalance = dbHelper.getOneCategory(catID).balance;
+            tempCatBalance -= userInput;
+           // MainActivity.starter1.updateBalance(Float.valueOf(eTcashValue.getText().toString()), false);
+            dbHelper.updateOneCategoryBalance(catID, tempCatBalance);
+            MainActivity.updateVisuals();
         }
-        else if (walletType == 0) {
+        else if (walletType == 0) { //cash
             MainActivity.updateCash(userInput, false);
         }
+        MainActivity.updateVisuals();
         finish();
     }
 }

@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private static MySQLiteHelper dbHelper;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +53,10 @@ public class MainActivity extends AppCompatActivity {
         tvCatCash1.setText(String.valueOf(dbHelper.getOneCategory(1).getBalance()));
 
         tvCatName2.setText(dbHelper.getOneCategory(2).getName());
-        tvCatCash2.setText(String.valueOf(dbHelper.getOneCategory(1).getBalance()));
+        tvCatCash2.setText(String.valueOf(dbHelper.getOneCategory(2).getBalance()));
 
         tvCatName3.setText(dbHelper.getOneCategory(3).getName());
-        tvCatCash3.setText(String.valueOf(dbHelper.getOneCategory(1).getBalance()));
+        tvCatCash3.setText(String.valueOf(dbHelper.getOneCategory(3).getBalance()));
 
         /*  Button listeners
         *   Category long press
@@ -70,71 +71,60 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // db test
-        /*
-        DatabaseHandler db = new DatabaseHandler(this);
-        Log.i("Insert: ", "Inserting ..");
-        db.addCategory(starter1);
-
-         */
-        /*
-        // Reading all cats
-        Log.i("Reading: ", "Reading all cats..");
-        List<Category> cats = db.getAllCats();
-        for (Category ct : cats) {
-            String log =
-                    "Id: " + ct.getId() +
-                            " , Name: " + ct.getName() +
-                            " , Balance: " + ct.getBalance();
-
-            // Writing cats to log
-            Log.i("Cat: ", log);
-        }
-        */
-    //        Category tcat = db.getCat(2);
-    //      Log.i("Reading:", "Cat name is " + tcat.getName());
-
     }
 
     public static void setCash(float amtIn){
         dbHelper.dbUpdateCash(amtIn);
         btnAvailableCash.setText("Cash: €" + String.valueOf(dbHelper.getCash()));
-
     }
 
     public static void updateCash(float amtIn, boolean plusOrMinus){
         availableCash = dbHelper.getCash();
-
         if (plusOrMinus == true){
             availableCash += amtIn;
         }
         else {
             availableCash -= amtIn;
         }
-
         dbHelper.dbUpdateCash(availableCash);
-
-        btnAvailableCash.setText("Cash: €" +String.valueOf(dbHelper.getCash()));
+        updateVisuals();
         if (availableCash < 0) {
             // Toast.makeText(this, "WARNING: Over-budgeted - Cash is negative", Toast.LENGTH_SHORT).show();
         }
-
     }
 
-    // wallet type 0
     public void doSpendInvestCat(View view) {
         Intent investSpendCat = new Intent(view.getContext(), StartLumpSumActivity.class);
-        //getIntent().putExtra("catID", starter1.id);
         investSpendCat.putExtra("walletType", 1);
         investSpendCat.putExtra("catID", 1);
         startActivity(investSpendCat);
     }
 
+    public void doSpendInvestCat2(View view) {
+        Intent investSpendCat = new Intent(view.getContext(), StartLumpSumActivity.class);
+        investSpendCat.putExtra("walletType", 1);
+        investSpendCat.putExtra("catID", 2);
+        startActivity(investSpendCat);
+    }
+
+    public void doSpendInvestCat3(View view) {
+        Intent investSpendCat = new Intent(view.getContext(), StartLumpSumActivity.class);
+        investSpendCat.putExtra("walletType", 1);
+        investSpendCat.putExtra("catID", 3);
+        startActivity(investSpendCat);
+    }
 
     public void DoLumSumInput(View view) {
         Intent LumpSum = new Intent(view.getContext(),StartLumpSumActivity.class);
         LumpSum.putExtra("walletType", 0);
         startActivity(LumpSum);
+    }
+
+    public static void updateVisuals(){
+        btnAvailableCash.setText("Cash: €" +String.valueOf(dbHelper.getCash()));
+        tvCatCash1.setText(String.valueOf(dbHelper.getOneCategory(1).getBalance()));
+        tvCatCash2.setText(String.valueOf(dbHelper.getOneCategory(2).getBalance()));
+        tvCatCash3.setText(String.valueOf(dbHelper.getOneCategory(3).getBalance()));
     }
 
     /*public void DoTutorial(View view) {
