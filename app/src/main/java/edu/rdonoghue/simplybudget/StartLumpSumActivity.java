@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 public class StartLumpSumActivity extends AppCompatActivity {
 EditText eTcashValue;
 public Float userInput;
+
 
 public int walletType; // 0 is cash. 1 is category (Groceries for now)
     public int catID;
@@ -28,6 +30,8 @@ public int walletType; // 0 is cash. 1 is category (Groceries for now)
 
         //for back button on action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
     }
 
     public void DoBack(View view) {
@@ -44,6 +48,12 @@ public int walletType; // 0 is cash. 1 is category (Groceries for now)
             userInput = Float.valueOf(eTcashValue.getText().toString());
             tempCatBalance += userInput;
             dbHelper.updateOneCategoryBalance(catID, tempCatBalance);
+
+            //progress bar increment
+            //incrementProgressBy((int) tempCatBalance)
+            //https://github.com/SViney97/Progress-Bar-prototype/blob/master/app/src/main/java/edu/sviney/progressbarprototype/MainActivity.java
+            MainActivity.ProTrackerCat1.incrementProgressBy((int) tempCatBalance);
+
             MainActivity.tvCatCash1.setText(String.valueOf(dbHelper.getOneCategory(catID).getBalance()));
             MainActivity.updateCash(userInput, false);
         }
