@@ -35,6 +35,7 @@ public int walletType; // 0 is cash. 1 is category (Groceries for now)
     }
 
     public void DoBack(View view) {
+        MainActivity.updateVisuals();
         finish();
     }
 
