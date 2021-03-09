@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         btnAvailableCash = findViewById(R.id.btnCashDisplay);
-        btnAvailableCash.setText("Cash: €" + String.valueOf(dbHelper.getCash()));
+        btnAvailableCash.setText("Cash: " + String.valueOf(dbHelper.getCash()));
 
         // Starter categories linking to visual elements
         tvCatName1 = findViewById(R.id.tvCatName);
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static void setCash(float amtIn){
         dbHelper.dbUpdateCash(amtIn);
-        btnAvailableCash.setText("Cash: €" + String.valueOf(dbHelper.getCash()));
+        btnAvailableCash.setText("Cash: " + String.valueOf(dbHelper.getCash()));
     }
 
     public static void updateCash(float amtIn, boolean plusOrMinus){

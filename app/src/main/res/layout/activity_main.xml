@@ -26,23 +26,6 @@
         app:layout_constraintVertical_bias="0.15" />
 
     <TextView
-        android:id="@+id/tvCatEuroSymbol3"
-        android:layout_width="25dp"
-        android:layout_height="34dp"
-        android:elevation="100dp"
-        android:fontFamily="@font/acme"
-        android:text="€"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="26sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCat3"
-        app:layout_constraintEnd_toStartOf="@+id/tvCatCash3"
-        app:layout_constraintHorizontal_bias="0.963"
-        app:layout_constraintStart_toEndOf="@+id/tvCatName3"
-        app:layout_constraintTop_toTopOf="@+id/btnCat3"
-        app:layout_constraintVertical_bias="0.099" />
-
-    <TextView
         android:id="@+id/tvCatCash3"
         android:layout_width="98dp"
         android:layout_height="34dp"
@@ -100,23 +83,6 @@
         app:layout_constraintVertical_bias="0.188" />
 
     <TextView
-        android:id="@+id/tvCatEuroSymbol2"
-        android:layout_width="25dp"
-        android:layout_height="34dp"
-        android:elevation="100dp"
-        android:fontFamily="@font/acme"
-        android:text="€"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="26sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/proBarCat2"
-        app:layout_constraintEnd_toStartOf="@+id/tvCatCash2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvCatName2"
-        app:layout_constraintTop_toTopOf="@+id/btnCat2"
-        app:layout_constraintVertical_bias="0.204" />
-
-    <TextView
         android:id="@+id/tvCatCash2"
         android:layout_width="98dp"
         android:layout_height="34dp"
@@ -170,22 +136,6 @@
         app:layout_constraintStart_toStartOf="@+id/btnCat"
         app:layout_constraintTop_toTopOf="@+id/btnCat"
         app:layout_constraintVertical_bias="0.161" />
-
-    <TextView
-        android:id="@+id/tvCatEuroSymbol"
-        android:layout_width="24dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="84dp"
-        android:elevation="100dp"
-        android:fontFamily="@font/acme"
-        android:text="€"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="26sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCat"
-        app:layout_constraintStart_toEndOf="@+id/tvCatName"
-        app:layout_constraintTop_toTopOf="@+id/btnCat"
-        app:layout_constraintVertical_bias="0.153" />
 
     <TextView
         android:id="@+id/tvCatCash"
