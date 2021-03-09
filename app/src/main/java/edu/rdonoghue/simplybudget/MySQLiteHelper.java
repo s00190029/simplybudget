@@ -18,7 +18,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_BALANCE = "balance";
     private static final String DATABASE_NAME = "categories.db";
-    private static final int DATABASE_VERSION = 24;
+    private static final int DATABASE_VERSION = 25;
 
     private static final String TABLE_CASH = "cash";
     private static final String COLUMN_MONEY ="money";
