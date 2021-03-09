@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -70,14 +71,21 @@ public class ExpandedCategoryActivity extends AppCompatActivity {
     }
 
     public void expandSave(View view) {
+        String moneyString = String.valueOf(moneyInput);
         if (nameField != null){
             dbHelper.updateOneCategoryName(catID, nameField.getText().toString());
         }
-        if (moneyInput != null){
-            float tempMoney = Float.parseFloat(moneyInput.getText().toString());
-            dbHelper.updateOneCategoryBalance(catID, tempMoney);
+        if ((moneyString != null)&&(moneyString != "")){
+            try{
+                float tempMoney = Float.parseFloat(moneyInput.getText().toString());
+                dbHelper.updateOneCategoryBalance(catID, tempMoney);
+            }catch(Exception e) {
+                Log.i("err","empty string here");
+            }
         }
-
+        else{
+            finish();
+        }
         MainActivity.updateVisuals();
         finish();
     }
