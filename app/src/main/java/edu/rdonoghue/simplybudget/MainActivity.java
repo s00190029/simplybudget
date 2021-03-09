@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         catButton2 = findViewById(R.id.btnCat2);
         catButton3 = findViewById(R.id.btnCat3);
 
+        updateVisuals();
+
 
         catButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
