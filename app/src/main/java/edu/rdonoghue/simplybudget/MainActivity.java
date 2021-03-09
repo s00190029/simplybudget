@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     public static Button btnAvailableCash;
     public static float availableCash;
     public static TextView tvCatCash1, tvCatCash2, tvCatName1, tvCatName2, tvCatName3, tvCatCash3;
-    public Button catButton;
+    public Button catButton, catButton2, catButton3;
     public static Category starter1, starter2, starter3;
     private List<Category> catList;
     private static MySQLiteHelper dbHelper;
@@ -77,10 +77,35 @@ public class MainActivity extends AppCompatActivity {
         *   Category long press
         */
         catButton = findViewById(R.id.btnCat);
+        catButton2 = findViewById(R.id.btnCat2);
+        catButton3 = findViewById(R.id.btnCat3);
+
+
         catButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 Intent expandedCatView = new Intent(view.getContext(), ExpandedCategoryActivity.class);
+                expandedCatView.putExtra("catID", 1);
+                startActivity(expandedCatView);
+                return true;
+            }
+        });
+
+        catButton2.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Intent expandedCatView = new Intent(view.getContext(), ExpandedCategoryActivity.class);
+                expandedCatView.putExtra("catID", 2);
+                startActivity(expandedCatView);
+                return true;
+            }
+        });
+
+        catButton3.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Intent expandedCatView = new Intent(view.getContext(), ExpandedCategoryActivity.class);
+                expandedCatView.putExtra("catID", 3);
                 startActivity(expandedCatView);
                 return true;
             }
@@ -138,13 +163,17 @@ public class MainActivity extends AppCompatActivity {
     public static void updateVisuals(){
         btnAvailableCash.setText("Cash: €" +String.valueOf(dbHelper.getCash()));
         tvCatCash1.setText(String.valueOf(dbHelper.getOneCategory(1).getBalance()));
+        tvCatName1.setText(String.valueOf(dbHelper.getOneCategory(1).getName()));
+
         tvCatCash2.setText(String.valueOf(dbHelper.getOneCategory(2).getBalance()));
+        tvCatName2.setText(String.valueOf(dbHelper.getOneCategory(2).getName()));
+
         tvCatCash3.setText(String.valueOf(dbHelper.getOneCategory(3).getBalance()));
+        tvCatName3.setText(String .valueOf(dbHelper.getOneCategory(3).getName()));
 
         ProTrackerCat1.setProgress((int) dbHelper.getOneCategory(1).balance);
         ProTrackerCat2.setProgress((int) dbHelper.getOneCategory(2).balance);
         ProTrackerCat3.setProgress((int) dbHelper.getOneCategory(3).balance);
-
     }
 
     /*public void DoTutorial(View view) {

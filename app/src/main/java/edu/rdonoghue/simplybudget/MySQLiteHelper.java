@@ -138,6 +138,18 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.update(TABLE_CATEGORIES, cv, whereClause, null);
         }
 
+    public void updateOneCategoryName(int idIn, String nameIn) {
+        // float must be viewable to SQL as a string first
+        String idString = String.valueOf(idIn);
+        db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_NAME, nameIn);
+        String whereClause = "_id="+idString;
+        db.update(TABLE_CATEGORIES, cv, whereClause, null);
+    }
+
+
+
     public void setInitCash(){
         db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
