@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -161,14 +162,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void updateVisuals(){
-        btnAvailableCash.setText("Cash: €" +String.valueOf(dbHelper.getCash()));
-        tvCatCash1.setText(String.valueOf(dbHelper.getOneCategory(1).getBalance()));
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+      //  String output = formatter.format(d);
+        btnAvailableCash.setText("Cash: " +formatter.format(dbHelper.getCash()));
+        tvCatCash1.setText(formatter.format(dbHelper.getOneCategory(1).getBalance()));
         tvCatName1.setText(String.valueOf(dbHelper.getOneCategory(1).getName()));
 
-        tvCatCash2.setText(String.valueOf(dbHelper.getOneCategory(2).getBalance()));
+        tvCatCash2.setText(formatter.format(dbHelper.getOneCategory(2).getBalance()));
         tvCatName2.setText(String.valueOf(dbHelper.getOneCategory(2).getName()));
 
-        tvCatCash3.setText(String.valueOf(dbHelper.getOneCategory(3).getBalance()));
+        tvCatCash3.setText(formatter.format(dbHelper.getOneCategory(3).getBalance()));
         tvCatName3.setText(String .valueOf(dbHelper.getOneCategory(3).getName()));
 
         ProTrackerCat1.setProgress((int) dbHelper.getOneCategory(1).balance);
