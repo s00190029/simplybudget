@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public static Category starter1, starter2, starter3;
     private List<Category> catList;
     private static MySQLiteHelper dbHelper;
-    public static ProgressBar ProTrackerCat1;
+    public static ProgressBar ProTrackerCat1, ProTrackerCat2,ProTrackerCat3;
 
 
 
@@ -38,8 +38,16 @@ public class MainActivity extends AppCompatActivity {
 
         //progress bar
         ProTrackerCat1 = findViewById(R.id.proBarCat);
-        ProTrackerCat1.setProgress(0);
+        ProTrackerCat1.setProgress((int) dbHelper.getOneCategory(1).balance);
         ProTrackerCat1.setMax(100);
+
+        ProTrackerCat2 = findViewById(R.id.proBarCat2);
+        ProTrackerCat2.setProgress((int) dbHelper.getOneCategory(2).balance);
+        ProTrackerCat2.setMax(100);
+
+        ProTrackerCat3 = findViewById(R.id.proBarCat3);
+        ProTrackerCat3.setProgress((int) dbHelper.getOneCategory(3).balance);
+        ProTrackerCat3.setMax(100);
 
 
         btnAvailableCash = findViewById(R.id.btnCashDisplay);
@@ -132,6 +140,11 @@ public class MainActivity extends AppCompatActivity {
         tvCatCash1.setText(String.valueOf(dbHelper.getOneCategory(1).getBalance()));
         tvCatCash2.setText(String.valueOf(dbHelper.getOneCategory(2).getBalance()));
         tvCatCash3.setText(String.valueOf(dbHelper.getOneCategory(3).getBalance()));
+
+        ProTrackerCat1.setProgress((int) dbHelper.getOneCategory(1).balance);
+        ProTrackerCat2.setProgress((int) dbHelper.getOneCategory(2).balance);
+        ProTrackerCat3.setProgress((int) dbHelper.getOneCategory(3).balance);
+
     }
 
     /*public void DoTutorial(View view) {
