@@ -22,7 +22,7 @@ public class activityTutorialVideo extends AppCompatActivity {
 
         //for the video to display and have controls
         VideoView videoView = (VideoView) findViewById(R.id.VVTurtorialVideo);
-        String VideoPath = ("android.resource://" + getPackageName() + "/" + R.raw.verticaltest);
+        String VideoPath = ("android.resource://" + getPackageName() + "/" + R.raw.tutorialvideo);
         Uri uri = Uri.parse(VideoPath);
         videoView.setVideoURI(uri);
 
